@@ -71,16 +71,17 @@ datasets:
 
   # Uncomment these for validation
   val:
-    name: test
-    type: SingleImageDataset
-    dataroot_lq: datasets/test
+    name: validation
+    type: PairedImageDataset
+    dataroot_gt: datasets/test/lq
+    dataroot_lq: datasets/test/lq
     io_backend:
       type: disk
 
 # network structures
 network_g:
   type: HAT
-  upscale: 4
+  upscale: 1
   in_chans: 3
   img_size: 64
   window_size: 16
@@ -137,16 +138,16 @@ val:
   val_freq: !!float 1e4
   save_img: True
 
-#  metrics:
-#    psnr: # metric name
-#      type: calculate_psnr
-#      crop_border: 4
-#      test_y_channel: false
-#
-#    ssim:
-#      type: calculate_ssim
-#      crop_border: 4
-#      test_y_channel: false
+  metrics:
+    psnr: # metric name
+      type: calculate_psnr
+      crop_border: 4
+      test_y_channel: false
+
+    ssim:
+      type: calculate_ssim
+      crop_border: 4
+      test_y_channel: false
 
 # logging settings
 logger:
