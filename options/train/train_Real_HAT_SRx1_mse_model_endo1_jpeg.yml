@@ -81,7 +81,7 @@ datasets:
 # network structures
 network_g:
   type: HAT
-  upscale: 4
+  upscale: 1
   in_chans: 3
   img_size: 64
   window_size: 16
