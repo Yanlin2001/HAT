@@ -73,7 +73,7 @@ datasets:
   val:
     name: validation
     type: PairedImageDataset
-    dataroot_gt: datasets/test/gt
+    dataroot_gt: datasets/test/hq
     dataroot_lq: datasets/test/lq
     io_backend:
       type: disk
