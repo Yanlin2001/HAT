@@ -3,7 +3,7 @@
 # debug: torch.cuda.OutOfMemoryError: CUDA out of memory.(train)
 # normal: /
 # ----------------------------------
-name: T_Real_HAT_SRx1_mse_model_endo2_test3
+name: T_Real_HAT_SRx1_mse_model_endo2_test4
 model_type: RealHATMSEModel
 scale: 1
 num_gpu: auto
@@ -94,9 +94,9 @@ network_g:
   conv_scale: 0.01
   overlap_ratio: 0.5
   img_range: 1.
-  depths: [6, 6, 6, 6, 6, 6, 6, 6]
+  depths: [6, 6]
   embed_dim: 144
-  num_heads: [6, 6, 6, 6, 6, 6, 6, 6]
+  num_heads: [6, 6]
   mlp_ratio: 2
   upsampler: 'pixelshuffle'
   resi_connection: '1conv'
