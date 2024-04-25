@@ -1,5 +1,9 @@
 # general settings
-name: T_Real_HAT_SRx4_mse_model_endo2
+# ----------------------------------
+# debug: train ok, val ok
+# normal: [eta: 9:57:07, time (data): 0.978 (0.018)]
+# ----------------------------------
+name: T_Real_HAT_SRx4_mse_model_endo2_test1
 model_type: RealHATMSEModel
 scale: 4
 num_gpu: auto
