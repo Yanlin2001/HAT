@@ -1,7 +1,7 @@
 # general settings
 name: train_HAT-S_SRx2_from_scratch
 model_type: HATModel
-scale: 2
+scale: 4
 num_gpu: auto
 manual_seed: 0
 
