@@ -98,7 +98,7 @@ network_g:
   embed_dim: 144
   num_heads: [6, 6]
   mlp_ratio: 2
-  upsampler: 'pixelshuffle'
+  upsampler: ''
   resi_connection: '1conv'
 
 # path
