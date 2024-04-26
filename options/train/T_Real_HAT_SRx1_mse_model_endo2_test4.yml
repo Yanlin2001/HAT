@@ -39,7 +39,7 @@ datasets:
   train:
     name: endo1
     type: RealESRGANDataset
-    dataroot_gt: datasets/train
+    dataroot_gt: datasets/train_lq
     meta_info_file: datasets/eta_info/meta_info_endo1.txt
     io_backend:
       type: disk
