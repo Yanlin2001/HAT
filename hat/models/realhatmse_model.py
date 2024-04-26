@@ -187,8 +187,8 @@ class RealHATMSEModel(SRModel):
                 self.gt = data['gt'].to(self.device)
                 gpu_tracker.track() 
                 self.gt_usm = self.usm_sharpener(self.gt)
-        print(gpu_tracker.get_allocate_usage())  # print the GPU memory usage
-
+        #print(gpu_tracker.get_allocate_usage())  # print the GPU memory usage
+        print('ok')  # print 'ok' to indicate the function is executed successfully
     def nondist_validation(self, dataloader, current_iter, tb_logger, save_img):
         # do not use the synthetic process during validation
         self.is_train = False
