@@ -1,6 +1,6 @@
 # general settings
 # ----------------------------------
-# debug: torch.cuda.OutOfMemoryError: CUDA out of memory.(train)
+# debug: torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 384.00 MiB.(train)
 # normal: /
 # ----------------------------------
 name: T_Real_HAT_SRx1_mse_model_endo2_test5
