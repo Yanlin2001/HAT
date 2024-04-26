@@ -3,7 +3,7 @@
 # debug: train ok, val ok
 # normal: [eta: 3 days, 7:53:16, time (data): 7.421 (0.017)]
 # ----------------------------------
-name: T_Real_HAT_SRx1_mse_model_endo2_test7
+name: T_Real_HAT_SRx1_mse_model_endo2_test8
 model_type: RealHATMSEModel
 scale: 1
 num_gpu: auto
@@ -98,7 +98,7 @@ network_g:
   embed_dim: 144
   num_heads: [6, 6]
   mlp_ratio: 2
-  upsampler: 'pixelshuffle'
+  upsampler: None
   resi_connection: '1conv'
 
 # path

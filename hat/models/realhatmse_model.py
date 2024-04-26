@@ -178,6 +178,8 @@ class RealHATMSEModel(SRModel):
             # training pair pool
             self._dequeue_and_enqueue()
             self.lq = self.lq.contiguous()  # for the warning: grad and param do not obey the gradient layout contract
+            print('lq_size:', self.lq.size())
+            print('gt_size:', self.gt.size())
         else:
             # for paired training or validation
             gpu_tracker.track() 
@@ -187,7 +189,7 @@ class RealHATMSEModel(SRModel):
                 self.gt = data['gt'].to(self.device)
                 gpu_tracker.track() 
                 self.gt_usm = self.usm_sharpener(self.gt)
-                
+
     def nondist_validation(self, dataloader, current_iter, tb_logger, save_img):
         # do not use the synthetic process during validation
         self.is_train = False
