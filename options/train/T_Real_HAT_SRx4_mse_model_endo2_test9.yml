@@ -1,11 +1,9 @@
 # general settings
 # ----------------------------------
 # debug: train ok, val ok
-# normal: [eta: 3 days, 7:53:16, time (data): 7.421 (0.017)] 1
-#[eta: 3 days, 7:11:29, time (data): 7.362 (0.017)] 2
-#[eta: 3 days, 5:10:54, time (data): 7.184 (0.016)] 4
+# normal: [eta: 9:57:07, time (data): 0.978 (0.018)]
 # ----------------------------------
-name: T_Real_HAT_SRx1_mse_model_endo2_test8
+name: T_Real_HAT_SRx4_mse_model_endo2_test9
 model_type: RealHATMSEModel
 scale: 4
 num_gpu: auto
@@ -79,7 +77,7 @@ datasets:
   val:
     name: validation
     type: PairedImageDataset
-    dataroot_gt: datasets/val/lq
+    dataroot_gt: datasets/val/hq
     dataroot_lq: datasets/val/lq
     io_backend:
       type: disk
@@ -96,9 +94,9 @@ network_g:
   conv_scale: 0.01
   overlap_ratio: 0.5
   img_range: 1.
-  depths: [6, 6]
+  depths: [6, 6, 6, 6, 6, 6]
   embed_dim: 144
-  num_heads: [6, 6]
+  num_heads: [6, 6, 6, 6, 6, 6]
   mlp_ratio: 2
   upsampler: 'pixelshuffle'
   resi_connection: '1conv'
