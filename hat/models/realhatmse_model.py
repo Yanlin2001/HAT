@@ -178,8 +178,8 @@ class RealHATMSEModel(SRModel):
             # training pair pool
             self._dequeue_and_enqueue()
             self.lq = self.lq.contiguous()  # for the warning: grad and param do not obey the gradient layout contract
-            print('lq_size:', self.lq.size())
-            print('gt_size:', self.gt.size())
+            #print('lq_size:', self.lq.size())
+            #print('gt_size:', self.gt.size())
         else:
             # for paired training or validation
             gpu_tracker.track() 
