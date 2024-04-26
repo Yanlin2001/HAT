@@ -2,10 +2,11 @@
 # ----------------------------------
 # debug: train ok, val ok
 # normal: [eta: 3 days, 7:53:16, time (data): 7.421 (0.017)]
+#[eta: 3 days, 7:11:29, time (data): 7.362 (0.017)]
 # ----------------------------------
 name: T_Real_HAT_SRx1_mse_model_endo2_test8
 model_type: RealHATMSEModel
-scale: 2
+scale: 4
 num_gpu: auto
 manual_seed: 0
 
@@ -31,7 +32,7 @@ poisson_scale_range2: [0.05, 2.5]
 gray_noise_prob2: 0.4
 jpeg_range2: [30, 95]
 
-gt_size: 128
+gt_size: 256
 queue_size: 180
 
 # dataset and data loader settings
@@ -62,7 +63,7 @@ datasets:
 
     final_sinc_prob: 0.8
 
-    gt_size: 128
+    gt_size: 256
     use_hflip: True
     use_rot: False
 
@@ -85,7 +86,7 @@ datasets:
 # network structures
 network_g:
   type: HAT
-  upscale: 2
+  upscale: 4
   in_chans: 3
   img_size: 64
   window_size: 16
