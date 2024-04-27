@@ -1,11 +1,11 @@
 # general settings
 # ----------------------------------
 # debug: train ok, val ok
-# normal: [eta: 3 days, 7:53:16, time (data): 7.421 (0.017)]
+# normal: [eta: 9:57:07, time (data): 0.978 (0.018)]
 # ----------------------------------
-name: T_Real_HAT_SRx1_mse_model_endo2_test7
+name: endo2_Real_HAT_mse_model_x4_real_1
 model_type: RealHATMSEModel
-scale: 1
+scale: 4
 num_gpu: auto
 manual_seed: 0
 
@@ -31,7 +31,7 @@ poisson_scale_range2: [0.05, 2.5]
 gray_noise_prob2: 0.4
 jpeg_range2: [30, 95]
 
-gt_size: 64
+gt_size: 256
 queue_size: 180
 
 # dataset and data loader settings
@@ -62,7 +62,7 @@ datasets:
 
     final_sinc_prob: 0.8
 
-    gt_size: 64
+    gt_size: 256
     use_hflip: True
     use_rot: False
 
@@ -77,15 +77,15 @@ datasets:
   val:
     name: validation
     type: PairedImageDataset
-    dataroot_gt: datasets/val/lq
-    dataroot_lq: datasets/val/lq
+    dataroot_gt: datasets/test/hq
+    dataroot_lq: datasets/test/lq
     io_backend:
       type: disk
 
 # network structures
 network_g:
   type: HAT
-  upscale: 1
+  upscale: 4
   in_chans: 3
   img_size: 64
   window_size: 16
@@ -94,9 +94,9 @@ network_g:
   conv_scale: 0.01
   overlap_ratio: 0.5
   img_range: 1.
-  depths: [6, 6]
+  depths: [6, 6, 6, 6, 6, 6, 6, 6]
   embed_dim: 144
-  num_heads: [6, 6]
+  num_heads: [6, 6, 6, 6, 6, 6, 6, 6]
   mlp_ratio: 2
   upsampler: 'pixelshuffle'
   resi_connection: '1conv'
@@ -119,10 +119,10 @@ train:
 
   scheduler:
     type: MultiStepLR
-    milestones: [10000,20000,30000,40000]
+    milestones: [10000,20000]
     gamma: 0.5
 
-  total_iter: 40000
+  total_iter: 20000
   warmup_iter: -1  # no warm up
 
   # losses

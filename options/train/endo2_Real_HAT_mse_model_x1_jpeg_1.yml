@@ -1,9 +1,9 @@
 # general settings
 # ----------------------------------
 # debug: train ok, val ok
-# normal: [eta: 12:52:53, time (data): 1.242 (0.015)]？？？？[eta: 6 days, 20:59:09, time (data): 15.224 (0.018)]
+# normal: [eta: 3:56:09, time (data): 0.421 (0.019)]
 # ----------------------------------
-name: T_Real_HAT_SRx1_mse_model_endo2_test6
+name: endo2_Real_HAT_mse_model_x1_jpeg_1
 model_type: RealHATMSEModel
 scale: 1
 num_gpu: auto
@@ -13,22 +13,22 @@ manual_seed: 0
 gt_usm: True  # USM the ground-truth
 
 # the first degradation process
-resize_prob: [0.2, 0.7, 0.1]  # up, down, keep
-resize_range: [0.15, 1.5]
-gaussian_noise_prob: 0.5
-noise_range: [1, 30]
-poisson_scale_range: [0.05, 3]
-gray_noise_prob: 0.4
+resize_prob: [0.0, 0.0, 1.0]  # up, down, keep
+resize_range: [0.9, 1.1]
+gaussian_noise_prob: 0.0
+noise_range: [1, 2]
+poisson_scale_range: [0.01, 0.02]
+gray_noise_prob: 0.0
 jpeg_range: [30, 95]
 
 # the second degradation process
-second_blur_prob: 0.8
-resize_prob2: [0.3, 0.4, 0.3]  # up, down, keep
-resize_range2: [0.3, 1.2]
-gaussian_noise_prob2: 0.5
-noise_range2: [1, 25]
-poisson_scale_range2: [0.05, 2.5]
-gray_noise_prob2: 0.4
+second_blur_prob: 0.0
+resize_prob2: [0.0, 0.0, 1.0]  # up, down, keep
+resize_range2: [0.9, 1.1]
+gaussian_noise_prob2: 0.0
+noise_range2: [1, 2]
+poisson_scale_range2: [0.01, 0.02]
+gray_noise_prob2: 0.0
 jpeg_range2: [30, 95]
 
 gt_size: 64
@@ -44,23 +44,23 @@ datasets:
     io_backend:
       type: disk
 
-    blur_kernel_size: 21
+    blur_kernel_size: 1
     kernel_list: ['iso', 'aniso', 'generalized_iso', 'generalized_aniso', 'plateau_iso', 'plateau_aniso']
     kernel_prob: [0.45, 0.25, 0.12, 0.03, 0.12, 0.03]
-    sinc_prob: 0.1
+    sinc_prob: 0.0
     blur_sigma: [0.2, 3]
     betag_range: [0.5, 4]
     betap_range: [1, 2]
 
-    blur_kernel_size2: 21
+    blur_kernel_size2: 1
     kernel_list2: ['iso', 'aniso', 'generalized_iso', 'generalized_aniso', 'plateau_iso', 'plateau_aniso']
     kernel_prob2: [0.45, 0.25, 0.12, 0.03, 0.12, 0.03]
-    sinc_prob2: 0.1
+    sinc_prob2: 0.0
     blur_sigma2: [0.2, 1.5]
     betag_range2: [0.5, 4]
     betap_range2: [1, 2]
 
-    final_sinc_prob: 0.8
+    final_sinc_prob: 0.0
 
     gt_size: 64
     use_hflip: True
@@ -94,9 +94,9 @@ network_g:
   conv_scale: 0.01
   overlap_ratio: 0.5
   img_range: 1.
-  depths: [6, 6, 6, 6, 6, 6, 6, 6]
+  depths: [6, 6]
   embed_dim: 144
-  num_heads: [6, 6, 6, 6, 6, 6, 6, 6]
+  num_heads: [6, 6]
   mlp_ratio: 2
   upsampler: 'pixelshuffle'
   resi_connection: '1conv'

@@ -1,7 +1,7 @@
 # general settings
 # ----------------------------------
 # debug: train ok, val ok
-# normal: [eta: 3:59:10, time (data): 0.436 (0.019)]
+# normal: [eta: 3:58:09, time (data): 0.435 (0.019)]
 # ----------------------------------
 name: T_Real_HAT_SRx1_mse_model_endo2_test8
 model_type: RealHATMSEModel
