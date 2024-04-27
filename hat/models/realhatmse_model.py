@@ -8,9 +8,9 @@ from basicsr.utils import DiffJPEG, USMSharp
 from basicsr.utils.img_process_util import filter2D
 from basicsr.utils.registry import MODEL_REGISTRY
 from torch.nn import functional as F
-from gpu_mem_track import MemTracker
+#from gpu_mem_track import MemTracker
 
-gpu_tracker = MemTracker()         # define a GPU tracker
+#gpu_tracker = MemTracker()         # define a GPU tracker
 
 @MODEL_REGISTRY.register()
 class RealHATMSEModel(SRModel):
@@ -71,17 +71,17 @@ class RealHATMSEModel(SRModel):
         """
         if self.is_train and self.opt.get('high_order_degradation', True):
             # training data synthesis
-            gpu_tracker.track() 
+            #gpu_tracker.track() 
             self.gt = data['gt'].to(self.device)
-            gpu_tracker.track() 
+            #gpu_tracker.track() 
             # USM sharpen the GT images
             if self.opt['gt_usm'] is True:
                 self.gt = self.usm_sharpener(self.gt)
-            gpu_tracker.track() 
+            #gpu_tracker.track() 
             self.kernel1 = data['kernel1'].to(self.device)
             self.kernel2 = data['kernel2'].to(self.device)
             self.sinc_kernel = data['sinc_kernel'].to(self.device)
-            gpu_tracker.track() 
+            #gpu_tracker.track() 
             ori_h, ori_w = self.gt.size()[2:4]
 
             # ----------------------- The first degradation process ----------------------- #
@@ -182,12 +182,12 @@ class RealHATMSEModel(SRModel):
             #print('gt_size:', self.gt.size())
         else:
             # for paired training or validation
-            gpu_tracker.track() 
+            #gpu_tracker.track() 
             self.lq = data['lq'].to(self.device)
-            gpu_tracker.track() 
+            #gpu_tracker.track() 
             if 'gt' in data:
                 self.gt = data['gt'].to(self.device)
-                gpu_tracker.track() 
+                #gpu_tracker.track() 
                 self.gt_usm = self.usm_sharpener(self.gt)
 
     def nondist_validation(self, dataloader, current_iter, tb_logger, save_img):
