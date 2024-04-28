@@ -3,9 +3,9 @@
 # debug: train ok, val ok
 # normal: [eta: 4:11:26, time (data): 0.417 (0.012)]
 # ----------------------------------
-name: T_Real_HAT_SRx1_GAN_endo2_test2
+name: endo2_Real_HAT_GAN_x4_sr_1
 model_type: RealHATGANModel
-scale: 1
+scale: 4
 num_gpu: auto
 manual_seed: 0
 
@@ -16,8 +16,8 @@ percep_gt_usm: True
 gan_gt_usm: False
 
 # the first degradation process
-resize_prob: [0.0, 0.0, 1.0]  # up, down, keep
-resize_range: [0.9, 1.1]
+resize_prob: [0.2, 0.7, 0.1]  # up, down, keep
+resize_range: [0.15, 1.5]
 gaussian_noise_prob: 0.0
 noise_range: [1, 2]
 poisson_scale_range: [0.01, 0.02]
@@ -25,16 +25,16 @@ gray_noise_prob: 0.0
 jpeg_range: [98, 99]
 
 # the second degradation process
-second_blur_prob: 0.8
-resize_prob2: [0.0, 0.0, 1.0]  # up, down, keep
-resize_range2: [0.9, 1.1]
+second_blur_prob: 0.0
+resize_prob2: [0.3, 0.4, 0.3]  # up, down, keep
+resize_range2: [0.3, 1.2]
 gaussian_noise_prob2: 0.0
 noise_range2: [1, 2]
 poisson_scale_range2: [0.01, 0.02]
 gray_noise_prob2: 0.0
 jpeg_range2: [98, 99]
 
-gt_size: 64
+gt_size: 256
 queue_size: 180
 
 # dataset and data loader settings
@@ -47,25 +47,25 @@ datasets:
     io_backend:
       type: disk
 
-    blur_kernel_size: 21
+    blur_kernel_size: 1
     kernel_list: ['iso', 'aniso', 'generalized_iso', 'generalized_aniso', 'plateau_iso', 'plateau_aniso']
     kernel_prob: [0.45, 0.25, 0.12, 0.03, 0.12, 0.03]
-    sinc_prob: 0.1
+    sinc_prob: 0.0
     blur_sigma: [0.2, 3]
     betag_range: [0.5, 4]
     betap_range: [1, 2]
 
-    blur_kernel_size2: 21
+    blur_kernel_size2: 1
     kernel_list2: ['iso', 'aniso', 'generalized_iso', 'generalized_aniso', 'plateau_iso', 'plateau_aniso']
     kernel_prob2: [0.45, 0.25, 0.12, 0.03, 0.12, 0.03]
-    sinc_prob2: 0.1
+    sinc_prob2: 0.0
     blur_sigma2: [0.2, 1.5]
     betag_range2: [0.5, 4]
     betap_range2: [1, 2]
 
-    final_sinc_prob: 0.8
+    final_sinc_prob: 0.0
 
-    gt_size: 64
+    gt_size: 256
     use_hflip: True
     use_rot: False
 
@@ -80,7 +80,7 @@ datasets:
   val:
     name: validation
     type: PairedImageDataset
-    dataroot_gt: datasets/val/hq
+    dataroot_gt: datasets/val/lq
     dataroot_lq: datasets/val/lq
     io_backend:
       type: disk
@@ -88,7 +88,7 @@ datasets:
 # network structures
 network_g:
   type: HAT
-  upscale: 1
+  upscale: 4
   in_chans: 3
   img_size: 64
   window_size: 16
@@ -113,7 +113,7 @@ network_d:
 # path
 path:
   # use the pre-trained Real-ESRNet model
-  pretrain_network_g: /kaggle/input/endo2gan/blur_net_g_40000.pth # train the MSE-based model 'Real_HAT' first.
+  pretrain_network_g: /kaggle/input/endo2gan/sr_net_g_40000.pth # train the MSE-based model 'Real_HAT' first.
   param_key_g: params_ema
   strict_load_g: true
   resume_state: ~

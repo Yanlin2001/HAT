@@ -3,7 +3,7 @@
 # debug: train ok, val ok
 # normal: [eta: 4:11:26, time (data): 0.417 (0.012)]
 # ----------------------------------
-name: T_Real_HAT_SRx1_GAN_endo2_test2
+name: endo2_Real_HAT_GAN_x1_blur_1
 model_type: RealHATGANModel
 scale: 1
 num_gpu: auto
@@ -80,8 +80,8 @@ datasets:
   val:
     name: validation
     type: PairedImageDataset
-    dataroot_gt: datasets/val/hq
-    dataroot_lq: datasets/val/lq
+    dataroot_gt: datasets/test/lq
+    dataroot_lq: datasets/test/lq
     io_backend:
       type: disk
 
