@@ -155,7 +155,7 @@ class HATModel(SRModel):
 
             if save_img:
                 if self.opt['is_train']:
-                    save_img_path = osp.join(self.opt['path']['visualization'], img_name,
+                    save_img_path = osp.join(self.opt['path']['visualization'], dataset_name, f'{current_iter}',
                                              f'{img_name}_{current_iter}.png')
                 else:
                     if self.opt['val']['suffix']:
