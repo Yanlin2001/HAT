@@ -113,7 +113,7 @@ network_d:
 # path
 path:
   # use the pre-trained Real-ESRNet model
-  pretrain_network_g: /kaggle/input/endo2ganreal/real_net_g_40000.pth # train the MSE-based model 'Real_HAT' first.
+  pretrain_network_g: /kaggle/input/endo2ganreal/net_g_40000.pth # train the MSE-based model 'Real_HAT' first.
   param_key_g: params_ema
   strict_load_g: true
   resume_state: ~
